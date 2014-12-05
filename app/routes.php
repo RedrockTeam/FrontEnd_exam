@@ -13,5 +13,13 @@
 
 Route::get('/', function()
 {
-	return URL()
+	return Redirect::to('/login');
 });
+
+Route::get('/login', 'HomeController@login');
+
+Route::post('/verify', 'HomeController@verify');
+
+Route::get('/question',array('before' => 'auth', 'uses' => 'HomeController@question'));
+
+Route::post('/answer', array('before' => 'auth', 'uses' => 'HomeController@answer'));
