@@ -65,15 +65,17 @@ class HomeController extends BaseController {
 
         if($this->getCookie())
         {
-            return View::make('answer');
+            $user_number = Session::get('user_number');
+            $data = DB::table('answer')->where('user_number', '=', $user_number)->get();
+            return View::make('answer')->with('data', $data);
         }
         else {
             if (Session::get('user_number') && Session::get('user_name'))
             {
                 $user_number = Session::get('user_number');
                 $user_name = Session::get('user_name');
-                if(DB::table('answer')->insert(array('user_number' => $user_number, 'start_time' => time())))
 
+                if(DB::table('answer')->insert(array('user_number' => $user_number, 'start_time' => time())))
             return Response::view('answer')->withCookie(Cookie::forever('user_name', $user_name));
 
             }
