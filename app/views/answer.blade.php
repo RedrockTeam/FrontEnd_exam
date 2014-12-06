@@ -187,38 +187,6 @@
 </section>
 
 <section>
-
-<pre><code>
-
-#demo_ling{
-    width: 100px;
-    height: 60px;
-    outline: 1px solid #000;
-}
-
-#demo_ling p{
-    margin: 10% 5%;
-}
-
-&lt;div id=&quot;demo_ling&quot;&gt;
-
-    &lt;p&gt;恩，注意看我所在的位置。&lt;/p&gt;
-
-&lt;/div&gt;
-
-</code></pre>
-
-<p>问: p 标签的 margin 的 top, right, bottom, left 计算值最终是多少?</p>
-
-<div class="answer_zone">
-            <section>
-                <label for="test-1">Q2:</label>
-                <textarea name="test2_2" id="" cols="30" rows="10"></textarea>
-            </section>
-        </div>
-</section>
-
-<section>
 <h1>Test3</h1>
 <img src="/assets/img/2.png" alt=""/>
 <p>假设浏览器的宽度就是为1170px, 请写出在一般文档流, 浮动, 和绝对定位情况下的实现方式</p>
@@ -351,8 +319,35 @@
 
 </section>
 <section>
+    <h1>Test 7</h1>
+    <pre><code>
 
+    #demo_ling{
+        width: 100px;
+        height: 60px;
+        outline: 1px solid #000;
+    }
 
+    #demo_ling p{
+        margin: 10% 5%;
+    }
+
+    &lt;div id=&quot;demo_ling&quot;&gt;
+
+        &lt;p&gt;恩，注意看我所在的位置。&lt;/p&gt;
+
+    &lt;/div&gt;
+
+    </code></pre>
+
+    <p>问: p 标签的 margin 的 top, right, bottom, left 计算值最终是多少?</p>
+
+    <div class="answer_zone">
+        <section>
+            <label for="test-1">Q1:</label>
+            <textarea name="test7_1" id="" cols="30" rows="10"></textarea>
+        </section>
+    </div>
 </section>
 
 

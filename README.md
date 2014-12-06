@@ -18,7 +18,6 @@ type : form
 		test1_2 : "" //
 		test1_3 : "" //
 		test2_1 : "" //  Ling的题
-		test2_2 : "" //
 		test3_1 : "" //  Java
 		test3_2 : "" //
 		test3_3 : ""
