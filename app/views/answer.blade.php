@@ -404,10 +404,17 @@
     </div>
 
 </section>
+
+<section>
+    <input type="submit" name="submit" class="btn btn-default" value="交卷咯..i"/>
+</section>
+
 </form>
 </div>
 
 </body>
+
+
 <script src="/assets/js/timer.js"></script>
 <script src="/assets/js/lib/jquery.js"></script>
 <script src="/assets/js/jquery.snipets.js"></script>
