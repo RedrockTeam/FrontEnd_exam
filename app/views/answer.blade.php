@@ -349,7 +349,7 @@
     <div class="answer_zone">
         <section>
             <label for="test-1">Q1:</label>
-            <textarea name="test7_1" id="" cols="30" rows="10"></textarea>
+            <textarea name="test7_1" id="" cols="30" rows="10">{{$data[0]['test7_1']}}</textarea>
         </section>
     </div>
 </section>
