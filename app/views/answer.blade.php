@@ -71,11 +71,30 @@
             width: 100px;
             height: 100px;
         }
+        .clock{
+            position:fixed;
+            top: 0;
+            right : 0;
+            width: 100px;
+            height: 100px;
+            outline: 1px solid #000;
+
+        }
+        .clock p {
+            line-height: 80px;
+            text-align: center;
+            font-size: 16px;
+             color: red;
+        }
 
     </style>
 </head>
 <body>
 <div class="container" style="">
+<div class="clock">
+
+    <p id="clock"></p>
+</div>
 <h2 style="margin-bottom: 30px;">红岩网校Web研发部 前端方向第一次考核</h2>
 <p style="color: red; font-size: 20px;">温馨提示, 直接在页面中写代码, 关掉浏览器可就没了呦, 没了就自己去哭吧 ~ ~</p>
 <p style="color: red">所以, 最好的方式是在自己电脑写好, 然后再粘贴上去</p>
@@ -433,6 +452,22 @@ $("pre.js").snippet("javascript",{style:"random",transparent:true,showNum:false}
     // using a random style from the selection of 39
     // with a transparent background
     // without showing line numbers.
+
+var time = new Timer(function(time){
+
+    var minutes = parseInt(time / 60),
+        second = time % 60;
+
+	time = ( minutes >= 10 ? minutes : "0" + minutes ) + " : " + (second >= 10 ? second : "0" + second);
+
+ 	$("#clock").html(time);
 });
+
+time.start();
+
+
+});
+
+
 </script>
 </html>
