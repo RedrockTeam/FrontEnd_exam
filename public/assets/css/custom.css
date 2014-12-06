@@ -4,22 +4,10 @@ body {
   position: relative;
 }
 
-@media (max-width: 979px) {
-  body {
-    padding-top: 0px;
-  }
-}
-
 #components {
   min-height: 500px;
 }
 
-#target fieldset {
-  border: 1px solid #ccc;
-  min-height: 200px;
-  padding: 5px;
-  padding-bottom: 30px;
-}
 
 .component {
   cursor: pointer;
