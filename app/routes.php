@@ -13,7 +13,8 @@
 
 Route::get('/', function()
 {
-	return Redirect::to('/login');
+	return View::make("answer");
+//	return Redirect::to('/login');
 });
 
 Route::get('/login', 'HomeController@login');
