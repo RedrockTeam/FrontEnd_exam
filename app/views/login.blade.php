@@ -19,7 +19,7 @@
 <body>
 <div class="container" style="width: 800px;">
 <h2 style="margin-bottom: 30px;">红岩网校Web研发部 前端方向第一次考核</h2>
- <form method="post" id="target" class="form-horizontal">
+ <form method="post" id="target" class="form-horizontal" action="/verify">
                   <fieldset><div><!-- Form Name -->
     </div><div class="component"><!-- Text input-->
     <div class="control-group">

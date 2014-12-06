@@ -80,7 +80,7 @@
 <p style="color: red; font-size: 20px;">温馨提示, 直接在页面中写代码, 关掉浏览器可就没了呦, 没了就自己去哭吧 ~ ~</p>
 <p style="color: red">所以, 最好的方式是在自己电脑写好, 然后再粘贴上去</p>
 <p style="color: red">虽然只是10道题, 然后任务量还是很大的. 不要在一道题上花费太多时间, 能多做一些就多做一些</p>
-<form method="post">
+<form method="post" action="/answer">
 <section>
     <h1>Test1</h1>
     <div class="que">
