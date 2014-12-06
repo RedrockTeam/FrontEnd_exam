@@ -3,23 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <title>前端第一次考核</title>
-
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
+    {{HTML::style("assets/css/lib/bootstrap.min.css")}}
+    {{HTML::style("assets/css/lib/bootstrap-responsive.min.css")}}
+    {{HTML::style("assets/css/custom.css")}}
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    {{HTML::style("images/favicon.ico", array('rel' => 'shortcut icon', 'type'=>''))}}
+    {{HTML::style("images/apple-touch-icon.png", array('rel' => 'apple-touch-icon','type'=>''))}}
+    {{HTML::style("images/apple-touch-icon-72x72.png", array('rel' => 'apple-touch-icon', 'sizes'=>'72x72','type'=>''))}}
+    {{HTML::style("images/apple-touch-icon-114x114.png", array('rel' => 'apple-touch-icon','sizes'=>'114x114','type'=>''))}}
+    {{--<link rel="shortcut icon" href="images/favicon.ico">--}}
+    {{--<link rel="apple-touch-icon" href="images/apple-touch-icon.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">--}}
 </head>
 <body>
 <div class="container" style="width: 800px;">
 <h2 style="margin-bottom: 30px;">红岩网校Web研发部 前端方向第一次考核</h2>
- <form method="post" id="target" class="form-horizontal" action="/verify">
+ <form method="post" id="target" class="form-horizontal" action="./verify">
                   <fieldset><div><!-- Form Name -->
     </div><div class="component"><!-- Text input-->
     <div class="control-group">
@@ -51,7 +53,7 @@
 
 
 </body>
- <script data-main="assets/js/main-built.js" src="assets/js/lib/require.js" ></script>
+    {{HTML::script("assets/js/lib/require.js", array('data-main'=> URL::asset('assets/js/main-built.js')))}}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

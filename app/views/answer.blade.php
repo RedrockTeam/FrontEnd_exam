@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>前端第一次考核</title>
-
-    <link href="/assets/css/lib/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/css/lib/bootstrap-responsive.min.css" rel="stylesheet">
+    {{HTML::style("assets/css/lib/bootstrap.min.css")}}
+    {{HTML::style("assets/css/lib/bootstrap-responsive.min.css")}}
+    {{--<link href="/assets/css/lib/bootstrap.min.css" rel="stylesheet">--}}
+    {{--<link href="/assets/css/lib/bootstrap-responsive.min.css" rel="stylesheet">--}}
     <style>
     section{
         margin: 30px 0;
@@ -96,10 +97,13 @@
     <p id="clock"></p>
 </div>
 <h2 style="margin-bottom: 30px;">红岩网校Web研发部 前端方向第一次考核</h2>
-<p style="color: red; font-size: 20px;">温馨提示, 直接在页面中写代码, 关掉浏览器可就没了呦, 没了就自己去哭吧 ~ ~</p>
+<p style="color: red; font-size: 20px;">温馨提示, 直接在页面中写代码, 关掉浏览器没有提交的代码可就没了呦, 没了就自己去哭吧 ~ ~</p>
 <p style="color: red">所以, 最好的方式是在自己电脑写好, 然后再粘贴上去</p>
 <p style="color: red">虽然只是10道题, 然后任务量还是很大的. 不要在一道题上花费太多时间, 能多做一些就多做一些</p>
-<form method="post" action="/answer">
+<p style="color: red">可以覆盖以前答案, 但是完成时间以最后一次为准</p>
+<p style="color: red"><?php echo $time = $data[0]['end_time']==null? (time() - $data[0]['start_time']):($data[0]['end_time'] - $data[0]['start_time']);?>秒</p>
+
+<form method="post" action="./answer">
 <section>
     <h1>Test1</h1>
     <div class="que">
@@ -134,16 +138,16 @@
     <div class="answer_zone">
         <section>
             <label for="test-1">Q1:</label>
-            <textarea name="test1_1" id="" cols="30" rows="10"></textarea>
+            <textarea name="test1_1" id="" cols="30" rows="10">{{$data[0]['test1_1']}}</textarea>
         </section>
         <section>
             <label for="test-2">Q2:</label>
-            <textarea name="test1_2" id="" cols="30" rows="10"></textarea>
+            <textarea name="test1_2" id="" cols="30" rows="10">{{$data[0]['test1_2']}}</textarea>
         </section>
 
         <section>
             <label for="test-1">Q3:</label>
-            <textarea name="test1_3" id="" cols="30" rows="10"></textarea>
+            <textarea name="test1_3" id="" cols="30" rows="10">{{$data[0]['test1_3']}}</textarea>
         </section>
     </div>
 
@@ -181,32 +185,32 @@
     <div class="answer_zone">
             <section>
                 <label for="test-1">Q1:</label>
-                <textarea name="test2_1" id="" cols="30" rows="10"></textarea>
+                <textarea name="test2_1" id="" cols="30" rows="10">{{$data[0]['test2_1']}}</textarea>
             </section>
         </div>
 </section>
 
 <section>
-<h1>Test3</h1>
-<img src="/assets/img/2.png" alt=""/>
-<p>假设浏览器的宽度就是为1170px, 请写出在一般文档流, 浮动, 和绝对定位情况下的实现方式</p>
+    <h1>Test3</h1>
+    <img src="{{URL::asset('/assets/img/2.png')}}" alt=""/>
+    <p>假设浏览器的宽度就是为1170px, 请写出在一般文档流, 浮动, 和绝对定位情况下的实现方式</p>
 
 
-    <div class="answer_zone">
-        <section>
-            <label for="test-1">Q1:</label>
-            <textarea name="test3_1" id="" cols="30" rows="10"></textarea>
-        </section>
-        <section>
-            <label for="test-2">Q2:</label>
-            <textarea name="test3_2" id="" cols="30" rows="10"></textarea>
-        </section>
+        <div class="answer_zone">
+            <section>
+                <label for="test-1">Q1:</label>
+                <textarea name="test3_1" id="" cols="30" rows="10">{{$data[0]['test3_1']}}</textarea>
+            </section>
+            <section>
+                <label for="test-2">Q2:</label>
+                <textarea name="test3_2" id="" cols="30" rows="10">{{$data[0]['test3_2']}}</textarea>
+            </section>
 
-        <section>
-            <label for="test-1">Q3:</label>
-            <textarea name="test3_3" id="" cols="30" rows="10"></textarea>
-        </section>
-    </div>
+            <section>
+                <label for="test-1">Q3:</label>
+                <textarea name="test3_3" id="" cols="30" rows="10">{{$data[0]['test3_3']}}</textarea>
+            </section>
+        </div>
 </section>
 
 
@@ -231,11 +235,11 @@
  <div class="answer_zone">
         <section>
             <label for="test-1">Q1:</label>
-            <textarea name="test4_1" id="" cols="30" rows="10"></textarea>
+            <textarea name="test4_1" id="" cols="30" rows="10">{{$data[0]['test4_1']}}</textarea>
         </section>
         <section>
             <label for="test-2">Q2:</label>
-            <textarea name="test4_2" id="" cols="30" rows="10"></textarea>
+            <textarea name="test4_2" id="" cols="30" rows="10">{{$data[0]['test4_2']}}</textarea>
         </section>
     </div>
 </section>
@@ -251,19 +255,19 @@
     <div class="answer_zone">
         <section>
             <label for="test-1">Q1:</label>
-            <textarea name="test5_1" id="" cols="30" rows="10"></textarea>
+            <textarea name="test5_1" id="" cols="30" rows="10">{{$data[0]['test5_1']}}</textarea>
         </section>
         <section>
             <label for="test-2">Q2:</label>
-            <textarea name="test5_2" id="" cols="30" rows="10"></textarea>
+            <textarea name="test5_2" id="" cols="30" rows="10">{{$data[0]['test5_2']}}</textarea>
         </section>
         <section>
             <label for="test-2">Q3:</label>
-            <textarea name="test5_3" id="" cols="30" rows="10"></textarea>
+            <textarea name="test5_3" id="" cols="30" rows="10">{{$data[0]['test5_3']}}</textarea>
             </section>
         <section>
             <label for="test-2">Q4:</label>
-            <textarea name="test5_4" id="" cols="30" rows="10"></textarea>
+            <textarea name="test5_4" id="" cols="30" rows="10">{{$data[0]['test5_4']}}</textarea>
         </section>
     </div>
 </section>
@@ -295,7 +299,7 @@
             &lt;p&gt;前端方向考核&lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&quot;div2&quot;&gt;
-            &lt;img src=&quot;img/1.jpg&quot; /&gt;
+            &lt;img src=&quot;{{URL::asset('/assetsimg/1.jpg')}};&quot; /&gt;
         &lt;/div&gt;
     </code></pre>
 
@@ -303,17 +307,17 @@
         <p>前端方向考核</p>
     </div>
     <div class="div2">
-        <img src="/assets/img/1.jpg" />
+        <img src="{{URL::asset('/assets/img/1.jpg')}}" />
     </div>
 
     <div class="answer_zone">
         <section>
             <label for="test-1">Q1:</label>
-            <textarea name="test6_1" id="" cols="30" rows="10"></textarea>
+            <textarea name="test6_1" id="" cols="30" rows="10">{{$data[0]['test6_1']}}</textarea>
         </section>
         <section>
             <label for="test-2">Q2:</label>
-            <textarea name="test6_2" id="" cols="30" rows="10"></textarea>
+            <textarea name="test6_2" id="" cols="30" rows="10">{{$data[0]['test6_2']}}</textarea>
         </section>
     </div>
 
@@ -354,7 +358,7 @@
 <section>
     <h1>Test8</h1>
 
-    <img src="/assets/img/1.png" alt=""/>
+    <img src="{{URL::asset('/assets/img/1.png')}}" alt=""/>
     <p>使用3种方式实现上面的效果.</p>
     <p>要求:</p>
     <ul>
@@ -363,11 +367,15 @@
         <div class="answer_zone">
             <section>
                 <label for="test-1">Q1:</label>
-                <textarea name="test8_1" id="" cols="30" rows="10"></textarea>
+                <textarea name="test8_1" id="" cols="30" rows="10">{{$data[0]['test8_1']}}</textarea>
             </section>
             <section>
                 <label for="test-2">Q2:</label>
-                <textarea name="test8_2" id="" cols="30" rows="10"></textarea>
+                <textarea name="test8_2" id="" cols="30" rows="10">{{$data[0]['test8_2']}}</textarea>
+            </section>
+            <section>
+                 <label for="test-3">Q3:</label>
+                 <textarea name="test8_3" id="" cols="30" rows="10">{{$data[0]['test8_3']}}</textarea>
             </section>
         </div>
 
@@ -383,7 +391,7 @@
      <div class="answer_zone">
         <section>
             <label for="test-1">Q1:</label>
-            <textarea name="test9_1" id="" cols="30" rows="10"></textarea>
+            <textarea name="test9_1" id="" cols="30" rows="10">{{$data[0]['test9_1']}}</textarea>
         </section>
     </div>
 </section>
@@ -413,7 +421,7 @@
     <div class="answer_zone">
         <section>
             <label for="test-1">Q1:</label>
-            <textarea name="test9_1" id="" cols="30" rows="10"></textarea>
+            <textarea name="test10_1" id="" cols="30" rows="10">{{$data[0]['test10_1']}}</textarea>
         </section>
     </div>
 
@@ -429,9 +437,9 @@
 </body>
 
 
-<script src="/assets/js/timer.js"></script>
-<script src="/assets/js/lib/jquery.js"></script>
-<script src="/assets/js/jquery.snipets.js"></script>
+<script src="{{URL::asset('/assets/js/timer.js')}}"></script>
+<script src="{{URL::asset('/assets/js/lib/jquery.js')}}"></script>
+<script src="{{URL::asset('/assets/js/jquery.snipets.js')}}"></script>
 <script>
 $(document).ready(function(){
 $("pre.htmlCode").snippet("html");

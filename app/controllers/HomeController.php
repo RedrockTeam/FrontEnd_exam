@@ -13,7 +13,7 @@ class HomeController extends BaseController {
     {
         if($this->getCookie())
         {
-            return Redirect::to('/question');
+            return Redirect::to('./question');
         }
         else
         {
@@ -24,10 +24,10 @@ class HomeController extends BaseController {
     //验证储存考核信息
     public function verify()
     {
-        $info = Input::all();
+        $info = Input::only('user_name', 'user_number');
         $user_name = $info['user_name'];
         $user_number = $info['user_number'];
-        $ip = $_SERVER["HTTP_CLIENT_IP"];
+        $ip = Request::getClientIp();
         $validator = Validator::make(
             array(
                 'user_name' => $user_name,
@@ -36,42 +36,53 @@ class HomeController extends BaseController {
             ),
             array(
                 'user_name' => 'required',
-                'user_number' => 'required|numeric|between:11,11',
+                'user_number' => 'required|numeric',
                 'user_ip' => 'required|ip',
             )
         );
 
         if ($validator->fails())
         {
-            return Response::make('<h1>登陆都能填错?</h1>', 403);
+            return Response::make('<h1>这么简单的登陆信息都能填错?</h1>', 403);
         }
         else
         {
+
             Session::put('user_name', $user_name);
             Session::put('user_number', $user_number);
-            Cookie::forever('user_name', $user_name);
-            Auth::attempt(array('user_name' => $user_name, 'user_number' => $user_number,),true);
             DB::table('user')->insert(array(
-                                    'user_name' => $user_name,
-                                    'user_number' => $user_number,
-                                    'user_ip' => $ip,
-                                                ));
-            return Redirect::intended('/qusetion');
+                                            'user_name' => $user_name,
+                                            'user_number' => $user_number,
+                                            'user_ip' => $ip,
+                                            ));
+               return Redirect::to('./question');
         }
     }
 
     //渲染答题页面
     public function question()
     {
+
         if($this->getCookie())
         {
-            return View::make('answer');
+            $user_number = Session::get('user_number');
+            $data = DB::table('answer')->where('user_number', '=', $user_number)->get();
+            return View::make('answer')->with('data', $data);
         }
-        else{
-            $user_number =  Session::get('user_number');
-            DB::table('answer')->insert(array('user_number' => $user_number,'start_time'=>time()));
-            return View::make('answer');
+        else {
+            if (Session::get('user_number') && Session::get('user_name'))
+            {
+                $user_number = Session::get('user_number');
+                $user_name = Session::get('user_name');
+
+                if(DB::table('answer')->insert(array('user_number' => $user_number, 'start_time' => time())))
+            return Response::view('answer')->withCookie(Cookie::forever('user_name', $user_name));
+
+            }
+            else
+                return Redirect::to('./login');
         }
+
     }
 
     //储存答案
@@ -80,7 +91,8 @@ class HomeController extends BaseController {
         if($this->getCookie())
         {
             $user_number = Session::get('user_number');
-            $answer = Input::all();
+
+            $answer = $input = Input::except('submit');;
             DB::table('answer')->where('user_number', '=', $user_number)->update($answer);
             DB::table('answer')->where('user_number', '=', $user_number)->update(array('end_time' => time()));
             return Response::make('你已成功提交!', 200);
@@ -96,10 +108,12 @@ class HomeController extends BaseController {
     {
        $user_name = Cookie::get('user_name');
        $num = DB::table('user')->where('user_name', '=', $user_name)->count();
-       if($num>0)
+       if($num == 1)
            return true;
-       else
+       elseif($num == 0)
            return false;
+        else
+            return Response::make('你完了!', 403);
     }
 
 }
