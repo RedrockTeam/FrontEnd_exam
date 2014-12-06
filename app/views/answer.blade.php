@@ -81,7 +81,7 @@
 <p style="color: red; font-size: 20px;">温馨提示, 直接在页面中写代码, 关掉浏览器没有提交的代码可就没了呦, 没了就自己去哭吧 ~ ~</p>
 <p style="color: red">所以, 最好的方式是在自己电脑写好, 然后再粘贴上去</p>
 <p style="color: red">虽然只是10道题, 然后任务量还是很大的. 不要在一道题上花费太多时间, 能多做一些就多做一些</p>
-<p style="color: red">可以覆盖以前答案, 但是完成时间以最后一次为准<?print_r($data)?></p>
+<p style="color: red">可以覆盖以前答案, 但是完成时间以最后一次为准</p>
 <form method="post" action="./answer">
 <section>
     <h1>Test1</h1>
