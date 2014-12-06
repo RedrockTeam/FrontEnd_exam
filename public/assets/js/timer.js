@@ -12,15 +12,20 @@ Timer.prototype.start = function(){
 
         var date = new Date(),
             now = date.getTime(),
-            differences = parseInt((now - startTime) / 1000);
-
-
-        self.time = differences;
+            differences = self.time + parseInt((now - startTime) / 1000);
 
         self.tickCallback(differences);
 
     }, 998);
 };
+
+Timer.prototype.set = function(time){
+	var self = this;
+	self.stop();
+	self.time = time;
+	self.start();
+};
+
 
 Timer.prototype.stop = function(){
     var self = this;
