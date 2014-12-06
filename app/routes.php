@@ -13,14 +13,14 @@
 
 Route::get('/', function()
 {
-	return View::make("answer");
-//	return Redirect::to('/login');
+	//return View::make("answer");
+    return Redirect::to('/login');
 });
 
-Route::get('/login', 'HomeController@login');
+Route::get('login', 'HomeController@login');
 
-Route::post('/verify', 'HomeController@verify');
+Route::post('verify', 'HomeController@verify');
 
-Route::get('/question',array('before' => 'auth', 'uses' => 'HomeController@question'));
+Route::get('question','HomeController@question');
 
-Route::post('/answer', array('before' => 'auth', 'uses' => 'HomeController@answer'));
+Route::post('answer', 'HomeController@answer');

@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'frontend_exam',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => '303547',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
