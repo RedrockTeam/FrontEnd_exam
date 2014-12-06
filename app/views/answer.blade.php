@@ -472,7 +472,7 @@ time.start();
 
 
 if($("#time").length > 0){
-    time.set($("#time").html());
+    time.set(parseInt($("#time").html()));
 }
 
 });
