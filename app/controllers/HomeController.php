@@ -87,7 +87,7 @@ class HomeController extends BaseController {
         }
         else
         {
-            return Response::make('你已经被抓住了!', 403);
+            return Response::make('你作弊已经被抓住了!', 403);
         }
     }
 
