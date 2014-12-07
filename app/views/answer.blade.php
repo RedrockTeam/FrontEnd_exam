@@ -401,9 +401,10 @@
 <section>
     <h1>Test 10</h1>
     <pre><code>
-    console.log(value);  // value 1
 
     var value = "value1";
+
+    console.log(value);  // value 1
 
     function show(){
     	console.log(value);
