@@ -24,3 +24,5 @@ Route::post('verify', 'HomeController@verify');
 Route::get('question','HomeController@question');
 
 Route::post('answer', 'HomeController@answer');
+
+Route::get('check', 'HomeController@check');

@@ -119,4 +119,12 @@ class HomeController extends BaseController {
             return Response::make('你完了!', 403);
     }
 
+    //检查考核
+    public function check()
+    {
+        $data = DB::table('user')
+                ->join('answer', 'user.user_number', '=', 'answer.user_number')
+                ->get();
+        return View::make('check')->with('data', $data);
+    }
 }
