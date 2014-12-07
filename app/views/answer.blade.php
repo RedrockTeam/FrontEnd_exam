@@ -102,7 +102,7 @@
 <p style="color: red">虽然只是10道题, 然后任务量还是很大的. 不要在一道题上花费太多时间, 能多做一些就多做一些</p>
 <p style="color: red">可以覆盖以前答案, 但是完成时间以最后一次为准</p>
 
-<p id="time" style="color: red"><?php echo $time = $data[0]['end_time']==null? (time() - $data[0]['start_time']):($data[0]['end_time'] - $data[0]['start_time']);?>秒</p>
+<p id="time" style="display:none"><?php echo $time = $data[0]['end_time']==null? (time() - $data[0]['start_time']):($data[0]['end_time'] - $data[0]['start_time']);?></p>
 
 
 <form method="post" action="./answer">
