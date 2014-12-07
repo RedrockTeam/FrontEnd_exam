@@ -42,6 +42,7 @@
 <div id="a">
     <div>姓名：{{{$v['user_name']}}}</div>
     <div>学号: {{{$v['user_number']}}}</div>
+    <div>花费时间: <?php $time = $v['end_time']==null? time()-$v['start_time']:$v['end_time']-$v['start_time']; echo floor($time/3600).':'.floor($time%3600/60).':'.$time%60;?></div>
     <div>ip: {{{$v['user_ip']}}}</div>
     <div>test1_1: <pre><code>{{{$v['test1_1']}}}</code></pre></div>
     <div>test1_2: <pre><code>{{{$v['test1_2']}}}</code></pre></div>
